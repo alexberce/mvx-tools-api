@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    container_name: mongo-db
+    ports:
+      - '27017-27019:27017-27019'
+    restart: always
+    env_file:
+      - .env.local.mongo
+    networks:
+      - mvx-tools-local-net
+    volumes:
+      - mongo:/data/db
+
+  snapshots:
+    image: mongo
+    container_name: mongo-snapshots-db
+    ports:
+      - '27020:27017'
+      - '27021:27018'
+      - '27022:27019'
+    restart: always
+    env_file:
+      - .env.local.mongo
+    networks:
+      - mvx-tools-local-net
+    volumes:
+      - mongo-snapshots:/data/db
+
+volumes:
+  mongo:
+    name: mvx-tools-mongo-db-volume
+  mongo-snapshots:
+    name: mvx-tools-snapshots-db-volume
+
+networks:
+  mvx-tools-local-net:

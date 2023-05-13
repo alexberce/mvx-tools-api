@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 
 /** Local Imports **/
 import { validate } from '@/config/validation';
+import { DatabaseProvidersModule } from "@/libs/database";
 
 @Module({
   imports: [
@@ -11,6 +12,8 @@ import { validate } from '@/config/validation';
       validate,
       isGlobal: true,
     }),
+
+    DatabaseProvidersModule,
   ],
 })
 export default class AppModule {}

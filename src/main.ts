@@ -19,7 +19,7 @@ async function bootstrap() {
   app.setGlobalPrefix('');
   app.enableVersioning({
     type: VersioningType.URI,
-    defaultVersion: '2',
+    defaultVersion: '1',
   });
 
   // Cors configuration
