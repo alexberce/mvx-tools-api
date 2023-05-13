@@ -14,6 +14,17 @@ class EnvironmentVariables {
   SNAPSHOTS_MONGO_DB_HOST: string;
   @IsString()
   SNAPSHOTS_MONGO_DB_NAME: string;
+
+  @IsString()
+  REDIS_HOST: string;
+  @IsNumber()
+  REDIS_PORT: number;
+  @IsString()
+  REDIS_USERNAME: string;
+  @IsString()
+  REDIS_PASSWORD: string;
+  @IsString()
+  REDIS_CERTIFICATE_STRING: string;
 }
 
 export function validate(config: Record<string, unknown>) {

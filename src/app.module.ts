@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-/** Local Imports **/
 import { validate } from '@/config/validation';
+import { CachingModule } from '@/libs/caching';
 import { DatabaseProvidersModule } from "@/libs/database";
 
 @Module({
@@ -13,6 +13,7 @@ import { DatabaseProvidersModule } from "@/libs/database";
       isGlobal: true,
     }),
 
+    CachingModule,
     DatabaseProvidersModule,
   ],
 })
