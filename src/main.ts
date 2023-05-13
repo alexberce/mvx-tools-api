@@ -6,11 +6,15 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger, ValidationPipe, VersioningType } from '@nestjs/common';
 
 import AppModule from './app.module';
+import { GlobalExceptionFilter } from '@/common/filters';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(bodyParser.json({ limit: '1mb' }));
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, validateCustomDecorators: true }));
+
+  // Filters configuration
+  app.useGlobalFilters(new GlobalExceptionFilter());
 
   // Config declarations
   const configService = app.get(ConfigService);
