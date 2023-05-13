@@ -25,6 +25,9 @@ class EnvironmentVariables {
   REDIS_PASSWORD: string;
   @IsString()
   REDIS_CERTIFICATE_STRING: string;
+
+  @IsString()
+  MVX_ES_INDEX_HOST: string;
 }
 
 export function validate(config: Record<string, unknown>) {
