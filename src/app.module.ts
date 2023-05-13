@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { validate } from '@/config/validation';
 import { CachingModule } from '@/libs/caching';
 import { DatabaseProvidersModule } from "@/libs/database";
+import AuthModule from '@/modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -15,6 +16,8 @@ import { DatabaseProvidersModule } from "@/libs/database";
 
     CachingModule,
     DatabaseProvidersModule,
+
+    AuthModule,
   ],
 })
 export default class AppModule {}
